@@ -30,6 +30,17 @@ module.exports = {
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif)%/i,
+        type: "assets/resource",
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: 'logo.png',
+            outputPath: 'client/'
+          },
+        }],
+      },
     ],
   },
   mode: process.env.NODE_ENV,

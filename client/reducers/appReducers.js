@@ -14,6 +14,9 @@ const fittedReducer = (state = initialState, action) => {
                 urlList
             }
         }
+        default: {
+            return state
+        }
     }
 }
 
