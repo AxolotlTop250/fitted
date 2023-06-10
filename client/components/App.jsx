@@ -7,11 +7,12 @@ const App = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: {prompt: prompt}
+      body: JSON.stringify({prompt: 'Male wearing mad drip'})
     })
     .then(response => response.json())
     .then(response => {
       const uri = response.data;
+      console.log(uri)
     })
 };
   //main container for the entire page
@@ -22,7 +23,7 @@ const App = () => {
         <div className="leftColumn"></div>
         <div className="contentContainer"></div>
         <div className="rightColumn"></div>
-        <button></button>
+        <button onClick={handleClick}></button>
       </div>
     </div>
   );
