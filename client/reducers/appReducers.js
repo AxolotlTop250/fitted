@@ -16,3 +16,5 @@ const fittedReducer = (state = initialState, action) => {
         }
     }
 }
+
+export default fittedReducer;
