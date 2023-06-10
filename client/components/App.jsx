@@ -19,10 +19,15 @@ const App = () => {
     <div className="container">
       <div className="navBar">Hello</div>
       <div className="underNav">
-        <div className="leftColumn"></div>
-        <div className="contentContainer"></div>
+        <div className="leftColumn"> </div>
+          {/* <div className="testBox"></div>
+        </div> */}
+        <div className="contentContainer">
+
+          <div className="optionsComponent"></div>
+          <div className="generatedComponent"></div>
+        </div>
         <div className="rightColumn"></div>
-        <button></button>
       </div>
     </div>
   );
