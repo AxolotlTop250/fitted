@@ -1,7 +1,7 @@
-import { configureStore } from 'redux';
+import { createStore } from 'redux';
 import reducers from './reducers/combinedReducers'
 
-const store = configureStore(
+const store = createStore(
     reducers
 )
 

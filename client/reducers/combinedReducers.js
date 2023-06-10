@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import appReducer from './appReducers'
+import fittedReducer from './appReducers'
 
 
 const reducers = combineReducers({
-    app: appReducer
+    app: fittedReducer
 })
 
 export default reducers
