@@ -1,32 +1,27 @@
 import React, { useState } from 'react';
+import Options from './options.jsx';
+import Generated from './generated.jsx';
+// import logo from '../logo.png'
 
 const App = () => {
-  const handleClick = (e) => {  
-    fetch('/', {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({prompt: 'Male wearing mad drip'})
-    })
-    .then(response => response.json())
-    .then(response => {
-      const uri = response.data;
-      console.log(uri)
-    })
-};
+
   //main container for the entire page
   return (
     <div className="container">
-      <div className="navBar">Hello</div>
+      <div>
+        <a href="/">Favorites</a>
+      </div>
+      <div className="navBar">
+        {/* <img src= { require('../logo.png')} /> */}
+        <a href="/"><img src="https://i.ibb.co/ZJVR822/logo.png" alt="logo" border="0" className='logo'/></a>
+        </div>
       <div className="underNav">
-        <div className="leftColumn"> </div>
-          {/* <div className="testBox"></div>
-        </div> */}
+        <div className="leftColumn">
+          {/* <button>Favorites</button> */}
+        </div>
         <div className="contentContainer">
-
-          <div className="optionsComponent"></div>
-          <div className="generatedComponent"></div>
+          <Options />
+          <Generated />
         </div>
         <div className="rightColumn"></div>
       </div>

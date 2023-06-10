@@ -18,10 +18,11 @@ app.post('/', async (req, res) => {
   const prompt = req.body.prompt;
 
   try {
-    leap.usePublicModel('sd-1.5');
+    leap.usePublicModel('rv-2.0');
 
     const response = await leap.generate.generateImage({
       prompt: prompt,
+      promptStrength: 0,
     });
     const imageUrl = response.data.images[0].uri;
 
