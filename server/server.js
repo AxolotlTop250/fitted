@@ -1,22 +1,41 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+// import { Leap } from ;
+const { Leap } = require('@leap-ai/sdk');
+// import dotenv from 'dotenv';
+const dotenv = require('dotenv');
+dotenv.config();
 
+const leap = new Leap(process.env.LEAP_API_KEY);
 // uncomment the below for proxy challenge
 
-app.get('/login', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-});
+// parses the json sent from the client
+app.use(express.json());
+app.use(express.static('public'));
 
-app.get('/signup', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-});
+app.post('/', async (req, res) => {
+  const prompt = req.body.prompt;
 
-// statically serve everything in the build folder on the route '/build'
-app.use('/build', express.static(path.join(__dirname, '../build')));
-// serve index.html on the route '/'
-app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+  try {
+    leap.usePublicModel('sd-1.5');
+
+    const response = await leap.generate.generateImage({
+      prompt: prompt,
+    });
+    const imageUrl = response.data.images[0].uri;
+
+    res.status(200).json({
+      success: true,
+      data: imageUrl,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      success: false,
+      error: 'The image could not be generated',
+    });
+  }
 });
 
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/
