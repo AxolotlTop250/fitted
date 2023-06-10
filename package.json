@@ -1,0 +1,48 @@
+{
+  "name": "fitted",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./client/index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development webpack serve --open --hot & node server/server.js",
+    "gulp-prod": "node_modules/.bin/gulp prod",
+    "gulp-dev": "node_modules/.bin/gulp dev"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "build",
+      "client"
+    ]
+  },
+  "author": "CodesmithLLC https://github.com/CodesmithLLC <hello@codesmith.io>",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "express": "^4.12.3",
+    "gulp": "^4.0.2",
+    "prop-types": "^15.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "victory": "^36.6.10",
+    "webpack": "^5.57.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/preset-react": "^7.22.3",
+    "babel-loader": "^9.1.2",
+    "concurrently": "^6.0.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.1",
+    "isomorphic-fetch": "^3.0.0",
+    "nodemon": "^2.0.7",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.1",
+    "style-loader": "^3.3.3",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.15.0"
+  }
+}
