@@ -9,7 +9,7 @@ import Favorites from './favorites.jsx';
 
 const App = () => {
 
-  //main container for the entire page
+  //main container for the entire pag
   return (
     <>
       <div className="container">
