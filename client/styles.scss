@@ -19,7 +19,8 @@ body {
   z-index: 3;
   display: flex;
   align-items:center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-right: 41%;
 }
 
 .underNav {
@@ -93,4 +94,8 @@ body {
   max-width: 300px;
   //margin-top: 35px;
   //margin-bottom: 35px;
+}
+
+.favorites {
+  padding-bottom: 5%;
 }

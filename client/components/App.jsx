@@ -8,12 +8,11 @@ const App = () => {
   //main container for the entire page
   return (
     <div className="container">
-      <div>
-        <a href="/">Favorites</a>
-      </div>
+
       <div className="navBar">
+      <a href="/"><img src="https://i.ibb.co/hF8mRSN/Favorites-Star.png" alt="favorites"  className="favorites"></img></a>
         {/* <img src= { require('../logo.png')} /> */}
-        <a href="/"><img src="https://i.ibb.co/ZJVR822/logo.png" alt="logo" border="0" className='logo'/></a>
+        <a href="/"><img src="https://i.ibb.co/ZJVR822/logo.png" alt="logo" border="0" className="logo"/></a>
         </div>
       <div className="underNav">
         <div className="leftColumn">
