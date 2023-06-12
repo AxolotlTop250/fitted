@@ -47,13 +47,40 @@ const Options = () =>{
     return(
         <div className='optionsComponent'>
             <form onSubmit={e => handleClick(e)}>
-                <input placeholder='Gender' ref={genderRef} id='gender' type='gender' />
-                <input placeholder='Top'  ref={topRef}  id='top' type='top' />
-                <input placeholder="Bottom" ref={bottomRef} id='bottom' type = 'bottom' />
-                <input placeholder="Shoes" ref={shoesRef} id='shoes' type='shoes' />
-                {/* <input placeholder="Occasion" ref={occasionRef} id='occasion' type='occasion' /> */}
-                <input placeholder="Weather" ref={weatherRef} id='weather' type='weather' />
-                <button onClick={handleClick}>Generate</button>
+                {/* <div class="buttons"> */}
+                    {/* <input placeholder='Gender' ref={genderRef} id='gender' type='gender' /> */}
+                    {/* <input placeholder='Top'  ref={topRef}  id='top' type='top' /> */}
+                    {/* <input placeholder="Bottom" ref={bottomRef} id='bottom' type = 'bottom' /> */}
+                    {/* <input placeholder="Shoes" ref={shoesRef} id='shoes' type='shoes' />
+                    {/* <input placeholder="Occasion" ref={occasionRef} id='occasion' type='occasion' /> */}
+                    {/* <input placeholder="Weather" ref={weatherRef} id='weather' type='weather' />  */}
+                    {/* </div> */}
+                
+                <div className="inputContainer">
+                    <div className="form__group field">
+                        <input type="input" className="form__field" ref={genderRef} placeholder="Gender" name="gender" id='gender' required />
+                        <label for="gender" className="form__label">Gender</label>
+                    </div>
+                    <div className="form__group field">
+                        <input type="input" className="form__field" ref={topRef} placeholder="Top" name="top" id='top' required />
+                        <label for="top" className="form__label">Top</label>
+                    </div>
+                    <div className="form__group field">
+                        <input type="input" className="form__field" ref={bottomRef} placeholder="Bottom" name="bottom" id='bottom' required />
+                        <label for="bottom" className="form__label">Bottom</label>
+                    </div>
+                    <div className="form__group field">
+                        <input type="input" className="form__field" ref={shoesRef} placeholder="Shoes" name="shoes" id='shoes' required />
+                        <label for="shoes" className="form__label">Shoes</label>
+                    </div>
+                    <div className="form__group field">
+                        <input type="input" className="form__field" ref={weatherRef} placeholder="Weather" name="weather" id='weather' required />
+                        <label for="weather" className="form__label">Weather</label>
+                    </div>
+                </div>
+                <div className="generate">
+                    <button onClick={handleClick} className="generateButton">Generate</button>
+                </div>
 
             </form>
         </div>
