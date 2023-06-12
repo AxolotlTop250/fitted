@@ -5,27 +5,29 @@ import { useSelector } from 'react-redux';
 
     const images = useSelector((state)=> state.app.urlList);
 
-    
+
+
 
     const showImages = []
 
-    for (let i =0; i<images.length;i++){
+    for (let i = 0; i<images.length;i++){
         showImages.push(<img id = {`image${[i]}`} className='generatedImages' src={images[i]} />,
-        <button id='saveImage' className="saveButton" onClick={
+        <button id='saveImage' onClick={
             function save(e) {  
 
                 e.preventDefault();
                 fetch('/store', {
-                  method: 'POST',
-                  headers: {
+                    method: 'POST',
+                    headers: {
                     "Content-Type": "application/json"
-                  },
-                  body: JSON.stringify({url: document.getElementById(`image${i}`).src})
+                    },
+                    body: JSON.stringify({
+                        url: document.getElementById(`image${i}`).src,
+                        
+                    })
                 })
-                .then(response => response.json())
-                .then(response => {
-                  
-                })
+                // .then(response => response.json())
+                .then(response => console.log(response))
             }
         } >Save</button>)
     }
