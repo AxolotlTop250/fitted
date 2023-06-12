@@ -2,8 +2,10 @@ import React, { useRef } from 'react';
 import { generate } from '../actions/actions';
 import { useDispatch } from 'react-redux'
 
-
+// our options component utilizes redux for state management
 const Options = () =>{
+
+    // these useRefs store the user inputted values from the input fields into variables
     const genderRef = useRef()
     const topRef = useRef()
     const bottomRef = useRef()
@@ -11,15 +13,17 @@ const Options = () =>{
     //const occasionRef = useRef()
     const weatherRef = useRef()
     const dispatch = useDispatch();
+    // our dispatch to send our URL information to the reducers file
     const generateImage = (url) => {
         dispatch(generate(url));
       };
 
-    //   prompt: `Standing ${gender} wearing ${top} ${bottom} and ${shoes} in ${occasion} wear on a ${weather} day.`
+    // our handle click that holds the functionality to send our prompt to our SDK 
+    //  sample prompt: `Standing ${gender} wearing ${top} ${bottom} and ${shoes} in ${occasion} wear on a ${weather} day.`
     const handleClick = (e) => {  
 
         e.preventDefault();
-
+        // store the input values on click into variables to their matching input fields, see the input fields in the return statement
         const gender = genderRef.current.value;
         const top = topRef.current.value;
         const bottom = bottomRef.current.value;
@@ -27,6 +31,7 @@ const Options = () =>{
         // const occasion = occasionRef.current.value;
         const weather = weatherRef.current.value;
         
+        // our fetch posts to the base domain and it sends through the customized prompt to our server
         fetch('/', {
           method: 'POST',
           headers: {
