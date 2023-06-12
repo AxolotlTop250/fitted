@@ -24,15 +24,12 @@ const saveRouter = require('./routes/saveRouter')
 app.use(express.json());
 app.use(express.static('public'));
 
-
-// this was our initial post route for the leap API, it is no longer necessary as our imageRouter is handling the POST requests now. See Image Controller for full notes
 app.use(express.static(path.resolve(__dirname, '../build')));
 
 
 app.use('/store', saveRouter)
 
 app.use('/', imageRouter)
-
 
 
 // app.use('/store', saveRouter)
