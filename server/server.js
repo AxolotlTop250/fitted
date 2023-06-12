@@ -1,42 +1,35 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-// import { Leap } from ;
 const { Leap } = require('@leap-ai/sdk');
-// import dotenv from 'dotenv';
 const dotenv = require('dotenv');
 dotenv.config();
-
 const leap = new Leap(process.env.LEAP_API_KEY);
-// uncomment the below for proxy challenge
+
+// import router
+const imageRouter = require('./routes/imageRouter')
 
 // parses the json sent from the client
 app.use(express.json());
 app.use(express.static('public'));
 
-app.post('/', async (req, res) => {
-  const prompt = req.body.prompt;
+app.use('/', imageRouter)
 
-  try {
-    // leap.usePublicModel('rv-2.0');
+// catch all error handler (to a route that doesn't exist)
+app.use((req, res) => {
+  res.status(404).send('This is not the page you\'re looking for')
+})
 
-    const response = await leap.generate.generateImage({
-      prompt: prompt,
-      promptStrength: 0,
-    });
-    const imageUrl = response.data.images[0].uri;
-
-    res.status(200).json({
-      success: true,
-      data: imageUrl,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({
-      success: false,
-      error: 'The image could not be generated',
-    });
-  }
+// global error handler
+app.use((err, req, res, next) => {
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
 });
 
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/
