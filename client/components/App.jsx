@@ -6,9 +6,11 @@ import Generated from './generated.jsx';
 
 const App = () => {
 
+
   //main container for the entire page
   // we have a star image which has an anchor link to the base domain at the moment, but will be refactored to '/favorites'
   // our logo is just a text logo made as a png, and it will serve as the main nav component that takes you back to the homepage
+
   return (
     <div className="container">
 
