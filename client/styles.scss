@@ -1,5 +1,8 @@
+// Our styles are not fully utilizing the strength of SCSS / SASS, it is no different than regular CSS and can be treated as such,
+// but feel free to update variables for SCSS 
+
 body {
-  background-color: rgb(181, 181, 181);  
+  background-color: rgb(236, 236, 236);
   color: rgb(230, 230, 230);
   font-family: sans-serif;
   margin: 0; /* Reset default body margin */
@@ -7,7 +10,7 @@ body {
 }
 
 .container {
-  background-color: rgb(181, 181, 181);
+  background-color: rgb(236, 236, 236);
   height: 100%; /* Occupy full height of the parent (body) */
   display: flex;
   flex-direction: column; /* Arrange children in a column */
@@ -39,6 +42,7 @@ body {
   //border-radius: 10px;
   //margin: 20px;
   max-width: 300px;
+  height: 100%;
   //margin-top: 35px;
   //margin-bottom: 35px;
 }
@@ -57,15 +61,19 @@ body {
   background-color: #222840;
   border-radius: 10px;
   flex: 1;
+  flex-basis: 20px;
+  position: relative;
   margin-top: 35px;
   margin-left: 40px;
   margin-right: 60px;
   margin-bottom: 35px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+  //padding-bottom: 30px;
+  //height: 240px;
 }
 
 .generatedComponent {
-  background-image: url("https://i.ibb.co/zsrNNS4/Poloroid.png");
+  //background-image: url("https://i.ibb.co/zsrNNS4/Poloroid.png");
   background-color: #222840;
   border-radius: 10px;
   flex: 3;
@@ -73,6 +81,9 @@ body {
   margin-left: 40px;
   margin-right: 60px;
   margin-bottom: 35px;
+  position: relative;
+  
+  //bottom: 10%;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
   //display: grid;
   //grid-template-columns: repeat(3, 1fr);
@@ -88,10 +99,12 @@ body {
 .generatedImages {
   // align-items: center;
   // justify-content: center;
-  // position: relative;
+   position: absolute;
+   top: 11.5%;
+   right: 17%;
   //bottom: 53px;
-  width: 100%;
-  height: 100%;
+  width: 430px;
+  height: 430px;
   //margin-right:29px;
   z-index:2;
   
@@ -116,6 +129,7 @@ body {
   //border-radius: 10px;
   //margin: 20px;
   max-width: 300px;
+  height: 100%;
   //margin-top: 35px;
   //margin-bottom: 35px;
 }
@@ -237,12 +251,14 @@ $gray2:#f5f5f54f;
   font-family: "Permanent Marker";
   font-size: 2.7rem;
   border:none;
+  position: absolute;
   color: rgba(15, 15, 15, 0.956);
   background-color: rgba(255, 255, 255, 0);
   width: 20%;
   height: 10%;
-  margin-right: 350px;
-  margin-top: 30px;
+  margin-right: 250px;
+  top: 80%;
+  left: 10%;
 }
 
 .saveButton:hover {
@@ -250,12 +266,15 @@ $gray2:#f5f5f54f;
 }
 
 .imageContainer {
-  height: 430px;
-  width: 430px;
-  background-image: linear-gradient(rgba(154, 154, 154, 0.091),rgba(76, 76, 76, 0.074),rgba(147, 147, 147, 0.153));
-  position: relative;
-  bottom: 65px;
-  right: 14px;
+  height: 680px;
+  width: 630px;
+  //display: flex;
+  background-image: url("https://i.ibb.co/zsrNNS4/Poloroid.png");
+  position:relative;
+  //bottom: 10%;
+  //transform: translateY(-65px);
+  //justify-content:center;
+  //align-items: center;
   z-index: 4;
   
 }

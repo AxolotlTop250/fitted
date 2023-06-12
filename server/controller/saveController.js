@@ -1,6 +1,8 @@
 const db = require('../models/fittedModels.js')
 const express = require('express');
 
+// this controller handles the functionality to query to the database when a generated image's save button is clicked
+
 const saveController = {}
 saveController.saveImage = async (req, res, next) => {
     const { url, id } = req.body;
