@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
     const showImages = []
 
-    for (let i =0; i<images.length;i++){
+    for (let i = 0; i<images.length;i++){
         showImages.push(<img id = {`image${[i]}`} className='generatedImages' src={images[i]} />,
         <button id='saveImage' onClick={
             function save(e) {  
