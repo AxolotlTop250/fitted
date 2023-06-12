@@ -12,8 +12,9 @@ import { useSelector } from 'react-redux';
 
     for (let i = 0; i<images.length;i++){
         showImages.push(<img id = {`image${[i]}`} className='generatedImages' src={images[i]} />,
-        <button id={`saveImage${i}`} onClick={
-            function save(e) {
+        <button id='saveImage' onClick={
+            function save(e) {  
+
                 e.preventDefault();
                 fetch('/store', {
                     method: 'POST',
@@ -33,7 +34,10 @@ import { useSelector } from 'react-redux';
 
     return(
         <div className = 'generatedComponent'>
+            <div className = 'imageContainer'>
+            {/* <img src="https://i.ibb.co/zsrNNS4/Poloroid.png"></img> */}
             {showImages}
+            </div>
         </div>
     )
  }
