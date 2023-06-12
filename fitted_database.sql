@@ -11,10 +11,10 @@ SET row_security = off;
 
 CREATE TABLE public.outfits (
   "_id" serial NOT NULL,
-  "URI" varchar,
+  "uri" varchar,
   CONSTRAINT "outfits_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE
 );
 
-INSERT INTO public.outfits VALUES (0, 'random_test_uri_should_be_here')
+-- INSERT INTO public.outfits VALUES (3, 'test')

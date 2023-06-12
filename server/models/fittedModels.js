@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 const PG_URI = 'postgres://icbizdqt:rLRhVqt9yuv2P2lnsD77Bto7IShV2Rcl@rajje.db.elephantsql.com/icbizdqt';
 
 const pool = new Pool({
-  conenctionString: PG_URI
+  connectionString: PG_URI
 });
 
 module.exports = {
