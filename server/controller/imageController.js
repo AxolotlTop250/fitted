@@ -7,7 +7,7 @@ const leap = new Leap(process.env.LEAP_API_KEY);
 const imageController = {};
 
 imageController.generateImage = async (req, res, next) => {
-    const prompt = req.body.prompt;
+    const { prompt } = req.body;
     try {
         const response = await leap.generate.generateImage({
             prompt: prompt,
@@ -22,11 +22,11 @@ imageController.generateImage = async (req, res, next) => {
     }
     catch (error) {
         return next({
-            log: "Express error handler caught an error in the generateImage middleware",
+            log: "Express error handler caught an error in the imageController.generateImage middleware",
             status: 500,
-            message: {err: "An error occurred in the generateImage middleware"}
+            message: {err: "An error occurred in the imageController.generateImage middleware"}
         })
-    }
-}
+    };
+};
 
 module.exports = imageController;

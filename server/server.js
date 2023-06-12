@@ -8,12 +8,23 @@ const leap = new Leap(process.env.LEAP_API_KEY);
 
 // import router
 const imageRouter = require('./routes/imageRouter')
+const saveRouter = require('./routes/saveRouter')
 
 // parses the json sent from the client
 app.use(express.json());
 app.use(express.static('public'));
 
+app.use(express.static(path.resolve(__dirname, '../build')));
+
+
+app.use('/store', saveRouter)
+
 app.use('/', imageRouter)
+
+
+
+// app.use('/store', saveRouter)
+
 
 // catch all error handler (to a route that doesn't exist)
 app.use((req, res) => {
@@ -31,5 +42,7 @@ app.use((err, req, res, next) => {
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
+
+
 
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/

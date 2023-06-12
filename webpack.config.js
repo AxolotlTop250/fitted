@@ -53,6 +53,9 @@ module.exports = {
       '/': {
         target: 'http://localhost:3000/',
       },
+      '/store': {
+        target: 'http://localhost:3000/',
+      },
     },
     compress: true,
   },
