@@ -13,14 +13,12 @@ const saveRouter = require('./routes/saveRouter')
 // parses the json sent from the client
 app.use(express.json());
 app.use(express.static('public'));
-
 app.use(express.static(path.resolve(__dirname, '../build')));
 
 
 app.use('/store', saveRouter)
 
 app.use('/', imageRouter)
-
 
 
 // app.use('/store', saveRouter)
