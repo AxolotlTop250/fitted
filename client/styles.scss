@@ -1,30 +1,280 @@
+// Our styles are not fully utilizing the strength of SCSS / SASS, it is no different than regular CSS and can be treated as such,
+// but feel free to update variables for SCSS 
+
 body {
-  background-color: rgb(52, 53, 59);
+  background-color: rgb(236, 236, 236);
   color: rgb(230, 230, 230);
   font-family: sans-serif;
+  margin: 0; /* Reset default body margin */
+  height: 100vh; /* Set body height to full viewport height */
 }
+
 .container {
-  background-color: rgb(3, 36, 225);
+  background-color: rgb(236, 236, 236);
+  height: 100%; /* Occupy full height of the parent (body) */
+  display: flex;
+  flex-direction: column; /* Arrange children in a column */
 }
+
 .navBar {
-  background-color: rgb(248, 80, 80);
-  height: 100px;
-}
-
-.leftColumn {
-  background-color: rgb(80, 248, 97);
-}
-
-.rightColumn {
-  background-color: rgb(22, 59, 204);
-}
-
-.contentContainer {
-  background-color: rgb(156, 22, 189);
+  background-color: rgb(24, 24, 24);
+  height: 10%;
+  z-index: 3;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  padding-right: 42%;
 }
 
 .underNav {
+  
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+   /* Make underNav occupy remaining vertical space */
+}
 
-  background-color:rgb(250, 4, 12);
+.leftColumn {
+  flex: 1;
+  background-color: rgb(236, 236, 236);
+  //box-shadow: -1px 10px 35px rgba(0, 0, 0, .7);
+  z-index: 4;
+  //border-radius: 10px;
+  //margin: 20px;
+  max-width: 300px;
+  height: 100%;
+  //margin-top: 35px;
+  //margin-bottom: 35px;
+}
+
+
+.contentContainer {
+  flex: 3;
+  background-color: rgb(236, 236, 236);
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  
+}
+
+.optionsComponent {
+  background-color: #222840;
+  border-radius: 10px;
+  flex: 1;
+  flex-basis: 20px;
+  position: relative;
+  margin-top: 35px;
+  margin-left: 40px;
+  margin-right: 60px;
+  margin-bottom: 35px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+  //padding-bottom: 30px;
+  //height: 240px;
+}
+
+.generatedComponent {
+  //background-image: url("https://i.ibb.co/zsrNNS4/Poloroid.png");
+  background-color: #222840;
+  border-radius: 10px;
+  flex: 3;
+  margin-top: 35px;
+  margin-left: 40px;
+  margin-right: 60px;
+  margin-bottom: 35px;
+  position: relative;
+  
+  //bottom: 10%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+  //display: grid;
+  //grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-repeat: no-repeat, no-repeat;
+  background-position-x: center;
+  
+}
+
+.generatedImages {
+  // align-items: center;
+  // justify-content: center;
+   position: absolute;
+   top: 11.5%;
+   right: 17%;
+  //bottom: 53px;
+  width: 430px;
+  height: 430px;
+  //margin-right:29px;
+  z-index:2;
+  
+
+  
+}
+
+.testBox {
+  background-color:rgb(255, 255, 255);
+  height: 200px;
+}
+
+.logo {
+  height: 85px;
+}
+
+.rightColumn {
+  flex: 1;
+  background-color: rgb(236, 236, 236);
+  //box-shadow: -1px 10px 35px rgba(0, 0, 0, .7);
+  z-index: 4;
+  //border-radius: 10px;
+  //margin: 20px;
+  max-width: 300px;
+  height: 100%;
+  //margin-top: 35px;
+  //margin-bottom: 35px;
+}
+
+.favorites {
+  padding-bottom: 5%;
+}
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #dddddd;
+$gray: #dddddd;
+$gray2:#f5f5f54f;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 50%;
+  border: 0;
+  border-bottom: 1px solid $gray;
+  outline: 0;
+  font-size: 1rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1rem;
+    cursor: text;
+    top: 25px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: .6rem;
+  color: $gray2;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 1px;
+  border-image-slice: 1;
+}
+
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+.inputContainer {
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  padding-left: 10%;
+}
+
+.generate {
+  align-items: center;
+  padding-left: 35%;
+  padding-top: 5%;
+}
+.generateButton {
+  font-family: 'lobster';
+  font-size: 2.3rem;
+  color: rgba(46, 46, 46, 0.944);
+  width: 40%;
+  height: 25%;
+  border-radius: 10px;
+  background-color: rgb(236, 236, 236);
+  // box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+  border: none;
+}
+
+.generateButton:hover,
+.generateButton:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 5 4px 12px;
+  color: rgba(0, 0, 0, 0.812);
+}
+
+.generateButton:hover {
+  transform: translateY(-1px);
+  
+}
+
+.generateButton:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+.saveButton {
+  font-family: "Permanent Marker";
+  font-size: 2.7rem;
+  border:none;
+  position: absolute;
+  color: rgba(15, 15, 15, 0.956);
+  background-color: rgba(255, 255, 255, 0);
+  width: 20%;
+  height: 10%;
+  margin-right: 250px;
+  top: 80%;
+  left: 10%;
+}
+
+.saveButton:hover {
+  color:rgba(0, 0, 0, 0.45);
+}
+
+.imageContainer {
+  height: 680px;
+  width: 630px;
+  //display: flex;
+  background-image: url("https://i.ibb.co/zsrNNS4/Poloroid.png");
+  position:relative;
+  //bottom: 10%;
+  //transform: translateY(-65px);
+  //justify-content:center;
+  //align-items: center;
+  z-index: 4;
   
 }

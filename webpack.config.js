@@ -6,7 +6,7 @@ module.exports = {
   output: {
     // path: path.resolve(__dirname, 'build'),
     // filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
   },
   plugins: [new HtmlWebpackPlugin({ template: `./index.html` })],
@@ -30,6 +30,17 @@ module.exports = {
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif)%/i,
+        type: "assets/resource",
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: 'logo.png',
+            outputPath: 'client/'
+          },
+        }],
+      },
     ],
   },
   mode: process.env.NODE_ENV,
@@ -38,11 +49,14 @@ module.exports = {
       directory: './client',
     },
     hot: true,
-    // proxy: {
-    //   '/': {
-    //     target: 'http://localhost:3000/',
-    //   },
-    // },
+    proxy: {
+      '/': {
+        target: 'http://localhost:3000/',
+      },
+      '/store': {
+        target: 'http://localhost:3000/',
+      },
+    },
     compress: true,
   },
   resolve: {
