@@ -6,6 +6,7 @@ import Generated from './generated.jsx';
 const Home = () => {
     return (
         <div className="underNav">
+            <div className="leftColumn"></div>
             <div className="contentContainer">
             <Options />
             <Generated />

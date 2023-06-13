@@ -3,17 +3,17 @@ import { useEffect } from 'react'
 
 const Favorites = () => {
 
-    // useEffect(() => {
-    //     fetch(`/store`)
-    //         .then(((data) => data.json()))
-    //         .then((data)=>{
-    //             console.log(data)
-    //         })
-    // })
+    useEffect(() => {
+        fetch(`/store`)
+            .then(((data) => data.json()))
+            .then((data)=>{
+                console.log(data)
+            })
+    })
 
     return (
         <div>
-            <h1>SUPSUSOUSPUSPUSPUSPP</h1>
+            <h1>Iterate Me!</h1>
         </div>
     )
 }

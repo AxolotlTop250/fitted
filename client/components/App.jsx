@@ -1,9 +1,12 @@
 // Dependencies
 import React, { useState } from 'react';
-import Options from './options.jsx';
-import Generated from './generated.jsx';
-// import logo from '../logo.png'
 
+import { Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// Component imports
+import Home from './Home2.jsx'
+import Favorites from './favorites.jsx';
+// npm react
 const App = () => {
 
 
@@ -12,26 +15,21 @@ const App = () => {
   // our logo is just a text logo made as a png, and it will serve as the main nav component that takes you back to the homepage
 
   return (
-    <div className="container">
-
-      <div className="navBar">
-      <a href="/"><img src="https://i.ibb.co/hF8mRSN/Favorites-Star.png" alt="favorites"  className="favorites"></img></a>
-        {/* <img src= { require('../logo.png')} /> */}
-        <a href="/"><img src="https://i.ibb.co/ZJVR822/logo.png" alt="logo" border="0" className="logo"/></a>
+    <>
+      <div className="container">
+        <div className="navBar">
+          <Link to="/favorites"><img src="https://i.ibb.co/hF8mRSN/Favorites-Star.png" alt="favorites"  className="favorites" /></Link>
+          <Link className="Home" to="/"><img src="https://i.ibb.co/ZJVR822/logo.png" alt="logo" border="0" className="logo"/></Link>
         </div>
-      <div className="underNav">
-        <div className="leftColumn">
-          {/* <button>Favorites</button> */}
-        </div>
-        <div className="contentContainer">
-          <Options />
-          <Generated />
-        </div>
-        <div className="rightColumn"></div>
+        <Routes>
+          <Route path="/favorites" element={<Favorites />}/>
+          <Route path="/" element={<Home /> }/>
+        </Routes>
       </div>
     </>
   );
-}
+};
+
 
 
 export default App;
